@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'harry_pregular';
+    src: url('harryp__-webfont.woff2') format('woff2'),
+         url('harryp__-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lumos';
+    src: url('Lumos.woff2') format('woff2'),
+        url('Lumos.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inkpotregular';
+    src: url('inkpot-webfont.woff2') format('woff2'),
+         url('inkpot-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	height: 100%;
+	background-image: url("../images/parchment_background.jpg");
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: "harry_pregular";
+	text-align: center;
+}
+
+h1{
+	font-size: 10vw;
+}
+
+p{
+	font-family: "Lumos";
+	font-size: 30px;
+}
+
+div{
+	overflow: auto;
+}
+
+#current_word{
+	letter-spacing: 12px;
+}
