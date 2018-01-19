@@ -34,6 +34,14 @@ var arrayOfProperNouns = ["Harry Potter", "Ron Weasley", "Hermione Granger", "Al
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 
 "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+var repeatLetterMusicTags = ["avadakedavra", "changes", "coming", "crap", "dare", "dirt", "dobby",
+"episkey", "finite-incantatem", "incendio", "insult", "lies", "me", "merlinsbeard", "muggle", 
+"nosuchthing", "pathetic", "repugno", "require", "sectumsempra", "shutit", "spells", "tension", "wrong"];
+
+var victoryMusicTags = ["arrival_of_baby_harry", "chess_game", "christmas_at_hogwarts", "diagon_alley",
+"entry_into_great_hall", "face_of_voldemort", "fluffy's_harp", "flying_keys", "harry's_wondrous_world",
+"hedwig's_theme", "invisibility_cloak", "journey_to_hogwarts", "leaving_hogwarts", "letters_from_hogwarts",
+"longbottom_flies", "norwegian_ridgeback", "prologue", "the_moving_stairs", "the_quidditch_match"];
 
 var charactersOfSelectedWord = [];
 var selectedWord;
@@ -66,7 +74,11 @@ document.onkeyup = function(event) {
 		userChoice = userChoice.toLowerCase();
 
 		if(alphabet.indexOf(userChoice) > -1) {
-			if(lettersGuessedArray.indexOf(userChoice) === -1 && charactersOfSelectedWord.indexOf(userChoice) === -1 && charactersOfSelectedWord.indexOf(userChoice.toUpperCase()) === -1) {
+			if(lettersGuessedArray.indexOf(userChoice) > -1 && charactersOfSelectedWord.indexOf(userChoice) === -1 && charactersOfSelectedWord.indexOf(userChoice.toUpperCase()) === -1) {
+				randomNumber = Math.floor(Math.random() * repeatLetterMusicTags.length);
+				document.getElementById(repeatLetterMusicTags[randomNumber]).play();
+			}
+			else if(lettersGuessedArray.indexOf(userChoice) === -1 && charactersOfSelectedWord.indexOf(userChoice) === -1 && charactersOfSelectedWord.indexOf(userChoice.toUpperCase()) === -1) {
 				guessesRemaining--;
 				lettersGuessedArray.push(userChoice);
 				document.getElementById("guesses_remaining").textContent = guessesRemaining;
@@ -88,6 +100,8 @@ document.onkeyup = function(event) {
 		if(stringOfUnderlines.indexOf("_") === -1) {
 			wins++;
 			document.getElementById("wins").textContent = wins;
+			randomNumber = Math.floor(Math.random() * victoryMusicTags.length);
+			document.getElementById(victoryMusicTags[randomNumber]).play();
 		}
 
 		if(guessesRemaining === 0 || stringOfUnderlines.indexOf("_") === -1) {
