@@ -25,6 +25,7 @@
 body{
 	height: 100%;
 	background-image: url("../images/parchment_background.jpg");
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6{
