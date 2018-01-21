@@ -74,7 +74,14 @@ function pauseMusic(music_class){
 		if(audio_id.charAt(audio_id.length-1) === music_class)
 			audios[i].pause();
 	}
-}; 
+};
+
+//removes losing image from screen
+function dissolveLosingImage(){
+	var losingImage = document.getElementsByClassName("undesirable")[0];
+	losingImage.classList.add("invisible");
+	losingImage.classList.remove("stamp");
+};
 
 //Game object
 var game = {
@@ -120,6 +127,9 @@ var game = {
 				element.fadeIn(500)
 			}, 500 + index*500);
 		});
+
+		//best place to dissolve losing image
+		setTimeout(dissolveLosingImage, 500 + 500*(arrayOfIds.length-1));
 
 		var victory = $("#wins");
 		victory.empty();
@@ -263,10 +273,20 @@ var game = {
 
 	//checks for end of game
 	checkForEndGame: function(){
-		if(this.checkForLoss() === true || this.solvedPuzzle === true)
+		if(this.checkForLoss() === true || this.solvedPuzzle === true) {
 			return true;
+		}
 		else
 			return false;
+	},
+
+	//print loser image
+	printLosingImage: function(){
+		if(this.guessesRemaining === 0) {
+			var losingImage = document.getElementsByClassName("undesirable")[0];
+			losingImage.classList.add("stamp");
+			losingImage.classList.remove("invisible");
+		}
 	},
 
 	//resets board
@@ -302,6 +322,7 @@ document.onkeyup = function(event) {
 			}
 			game.checkForVictory();
 			if(game.checkForEndGame()) {
+				game.printLosingImage();
 				game.resetBoard();
 				game.setGame();
 				game.dissolveNewBoard();

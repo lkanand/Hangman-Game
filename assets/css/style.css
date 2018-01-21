@@ -47,8 +47,16 @@ div{
     word-wrap: break-word;
 }
 
+.main{
+    align-content: center;
+}
+
 .main_game{
     margin-top: 10vh;
+}
+
+.main_game div{
+    text-align: center;
 }
 
 .left_box, .right_box{
@@ -57,4 +65,38 @@ div{
 
 #current_word{
 	letter-spacing: 14px;
+}
+
+@-webkit-keyframes slam-animation {
+    0% {
+      opacity: 0;
+        -webkit-transform: scale(10);
+    }
+
+    100% {
+      opacity: 1;
+        -webkit-transform: rotate(-30deg) scale(1);
+    }
+}
+
+.undesirable {
+    position: absolute;
+    z-index: 1;
+    top: 9%;
+    right: 38%;
+
+    width: 26vw;
+    height: auto;
+}
+
+.invisible{
+    display: none;
+}
+
+.stamp{
+    -webkit-animation-name: slam-animation;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
 }
