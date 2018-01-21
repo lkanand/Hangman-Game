@@ -3,79 +3,93 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Harry Potter Hangman</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<meta name="viewport" content="width=device-width, initial scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript" src="assets/javascript/game.js"></script>
-		<audio id = "avadakedavra" src = "assets/audio/repeat_letter_music/avadakedavra.mp3"> </audio>
-		<audio id = "changes" src = "assets/audio/repeat_letter_music/changes.mp3"> </audio>
-		<audio id = "coming" src = "assets/audio/repeat_letter_music/coming.mp3"> </audio>
-		<audio id = "crap" src = "assets/audio/repeat_letter_music/crap.mp3"> </audio>
-		<audio id = "dare" src = "assets/audio/repeat_letter_music/dare.mp3"> </audio>
-		<audio id = "dirt" src = "assets/audio/repeat_letter_music/dirt.mp3"> </audio>
-		<audio id = "dobby" src = "assets/audio/repeat_letter_music/dobby.mp3"> </audio>
-		<audio id = "episkey" src = "assets/audio/repeat_letter_music/episkey.mp3"> </audio>
-		<audio id = "finite-incantatem" src = "assets/audio/repeat_letter_music/finite-incantatem.mp3"> </audio>
-		<audio id = "incendio" src = "assets/audio/repeat_letter_music/incendio.mp3"> </audio>
-		<audio id = "insult" src = "assets/audio/repeat_letter_music/insult.mp3"> </audio>
-		<audio id = "lies" src = "assets/audio/repeat_letter_music/lies.mp3"> </audio>
-		<audio id = "me" src = "assets/audio/repeat_letter_music/me.mp3"> </audio>
-		<audio id = "merlinsbeard" src = "assets/audio/repeat_letter_music/merlinsbeard.mp3"> </audio>
-		<audio id = "muggle" src = "assets/audio/repeat_letter_music/muggle.mp3"> </audio>
-		<audio id = "nosuchthing" src = "assets/audio/repeat_letter_music/nosuchthing.mp3"> </audio>
-		<audio id = "pathetic" src = "assets/audio/repeat_letter_music/pathetic.mp3"> </audio>
-		<audio id = "repugno" src = "assets/audio/repeat_letter_music/repugno.mp3"> </audio>
-		<audio id = "require" src = "assets/audio/repeat_letter_music/require.mp3"> </audio>
-		<audio id = "sectumsempra" src = "assets/audio/repeat_letter_music/sectumsempra.mp3"> </audio>
-		<audio id = "shutit" src = "assets/audio/repeat_letter_music/shutit.mp3"> </audio>
-		<audio id = "spells" src = "assets/audio/repeat_letter_music/spells.mp3"> </audio>
-		<audio id = "tension" src = "assets/audio/repeat_letter_music/tension.mp3"> </audio>
-		<audio id = "wrong" src = "assets/audio/repeat_letter_music/wrong.mp3"> </audio>
+		<!--IDs of music from repeat folder end with "r", IDs of music from victory folder end with "v" -->
+		<audio id = "avadakedavrar" src = "assets/audio/repeat_letter_music/avadakedavra.mp3"> </audio>
+		<audio id = "changesr" src = "assets/audio/repeat_letter_music/changes.mp3"> </audio>
+		<audio id = "comingr" src = "assets/audio/repeat_letter_music/coming.mp3"> </audio>
+		<audio id = "crapr" src = "assets/audio/repeat_letter_music/crap.mp3"> </audio>
+		<audio id = "darer" src = "assets/audio/repeat_letter_music/dare.mp3"> </audio>
+		<audio id = "dirtr" src = "assets/audio/repeat_letter_music/dirt.mp3"> </audio>
+		<audio id = "dobbyr" src = "assets/audio/repeat_letter_music/dobby.mp3"> </audio>
+		<audio id = "episkeyr" src = "assets/audio/repeat_letter_music/episkey.mp3"> </audio>
+		<audio id = "finite-incantatemr" src = "assets/audio/repeat_letter_music/finite-incantatem.mp3"> </audio>
+		<audio id = "incendior" src = "assets/audio/repeat_letter_music/incendio.mp3"> </audio>
+		<audio id = "insultr" src = "assets/audio/repeat_letter_music/insult.mp3"> </audio>
+		<audio id = "liesr" src = "assets/audio/repeat_letter_music/lies.mp3"> </audio>
+		<audio id = "mer" src = "assets/audio/repeat_letter_music/me.mp3"> </audio>
+		<audio id = "merlinsbeardr" src = "assets/audio/repeat_letter_music/merlinsbeard.mp3"> </audio>
+		<audio id = "muggler" src = "assets/audio/repeat_letter_music/muggle.mp3"> </audio>
+		<audio id = "nosuchthingr" src = "assets/audio/repeat_letter_music/nosuchthing.mp3"> </audio>
+		<audio id = "patheticr" src = "assets/audio/repeat_letter_music/pathetic.mp3"> </audio>
+		<audio id = "repugnor" src = "assets/audio/repeat_letter_music/repugno.mp3"> </audio>
+		<audio id = "requirer" src = "assets/audio/repeat_letter_music/require.mp3"> </audio>
+		<audio id = "sectumsemprar" src = "assets/audio/repeat_letter_music/sectumsempra.mp3"> </audio>
+		<audio id = "shutitr" src = "assets/audio/repeat_letter_music/shutit.mp3"> </audio>
+		<audio id = "spellsr" src = "assets/audio/repeat_letter_music/spells.mp3"> </audio>
+		<audio id = "tensionr" src = "assets/audio/repeat_letter_music/tension.mp3"> </audio>
+		<audio id = "wrongr" src = "assets/audio/repeat_letter_music/wrong.mp3"> </audio>
 
-		<audio id = "arrival_of_baby_harry" src = "assets/audio/victory_music/arrival_of_baby_harry.mp3"> </audio>
-		<audio id = "chess_game" src = "assets/audio/victory_music/chess_game.mp3"> </audio>
-		<audio id = "christmas_at_hogwarts" src = "assets/audio/victory_music/christmas_at_hogwarts.mp3"> </audio>
-		<audio id = "diagon_alley" src = "assets/audio/victory_music/diagon_alley.mp3"> </audio>
-		<audio id = "entry_into_great_hall" src = "assets/audio/victory_music/entry_into_great_hall.mp3"> </audio>
-		<audio id = "face_of_voldemort" src = "assets/audio/victory_music/face_of_voldemort.mp3"> </audio>
-		<audio id = "fluffy's_harp" src = "assets/audio/victory_music/fluffy's_harp.mp3"> </audio>
-		<audio id = "flying_keys" src = "assets/audio/victory_music/flying_keys.mp3"> </audio>
-		<audio id = "harry's_wondrous_world" src = "assets/audio/victory_music/harry's_wondrous_world.mp3"> </audio>
-		<audio id = "hedwig's_theme" src = "assets/audio/victory_music/hedwig's_theme.mp3"> </audio>
-		<audio id = "invisibility_cloak" src = "assets/audio/victory_music/invisibility_cloak.mp3"> </audio>
-		<audio id = "journey_to_hogwarts" src = "assets/audio/victory_music/journey_to_hogwarts.mp3"> </audio>
-		<audio id = "leaving_hogwarts" src = "assets/audio/victory_music/leaving_hogwarts.mp3"> </audio>
-		<audio id = "letters_from_hogwarts" src = "assets/audio/victory_music/letters_from_hogwarts.mp3"> </audio>
-		<audio id = "longbottom_flies" src = "assets/audio/victory_music/longbottom_flies.mp3"> </audio>
-		<audio id = "norwegian_ridgeback" src = "assets/audio/victory_music/norwegian_ridgeback.mp3"> </audio>
-		<audio id = "prologue" src = "assets/audio/victory_music/prologue.mp3"> </audio>
-		<audio id = "the_moving_stairs" src = "assets/audio/victory_music/the_moving_stairs.mp3"> </audio>
-		<audio id = "the_quidditch_match" src = "assets/audio/victory_music/the_quidditch_match.mp3"> </audio>
+		<audio id = "arrival_of_baby_harryv" src = "assets/audio/victory_music/arrival_of_baby_harry.mp3"> </audio>
+		<audio id = "chess_gamev" src = "assets/audio/victory_music/chess_game.mp3"> </audio>
+		<audio id = "christmas_at_hogwartsv" src = "assets/audio/victory_music/christmas_at_hogwarts.mp3"> </audio>
+		<audio id = "diagon_alleyv" src = "assets/audio/victory_music/diagon_alley.mp3"> </audio>
+		<audio id = "entry_into_great_hallv" src = "assets/audio/victory_music/entry_into_great_hall.mp3"> </audio>
+		<audio id = "face_of_voldemortv" src = "assets/audio/victory_music/face_of_voldemort.mp3"> </audio>
+		<audio id = "fluffy's_harpv" src = "assets/audio/victory_music/fluffy's_harp.mp3"> </audio>
+		<audio id = "flying_keysv" src = "assets/audio/victory_music/flying_keys.mp3"> </audio>
+		<audio id = "harry's_wondrous_worldv" src = "assets/audio/victory_music/harry's_wondrous_world.mp3"> </audio>
+		<audio id = "hedwig's_themev" src = "assets/audio/victory_music/hedwig's_theme.mp3"> </audio>
+		<audio id = "invisibility_cloakv" src = "assets/audio/victory_music/invisibility_cloak.mp3"> </audio>
+		<audio id = "journey_to_hogwartsv" src = "assets/audio/victory_music/journey_to_hogwarts.mp3"> </audio>
+		<audio id = "leaving_hogwartsv" src = "assets/audio/victory_music/leaving_hogwarts.mp3"> </audio>
+		<audio id = "letters_from_hogwartsv" src = "assets/audio/victory_music/letters_from_hogwarts.mp3"> </audio>
+		<audio id = "longbottom_fliesv" src = "assets/audio/victory_music/longbottom_flies.mp3"> </audio>
+		<audio id = "norwegian_ridgebackv" src = "assets/audio/victory_music/norwegian_ridgeback.mp3"> </audio>
+		<audio id = "prologuev" src = "assets/audio/victory_music/prologue.mp3"> </audio>
+		<audio id = "the_moving_stairsv" src = "assets/audio/victory_music/the_moving_stairs.mp3"> </audio>
+		<audio id = "the_quidditch_matchv" src = "assets/audio/victory_music/the_quidditch_match.mp3"> </audio>
 
 		<header>
 			<h1>Harry Potter Hangman</h1>
 		</header>
-		<div id="left">
-		</div>
-		<div class="foosteps_border" id="right">
+		<div class="main_game">
 			<p>Press any key to start playing</p>
+			
+			<div class = "col-xs-2">
+			</div>
+			
+			<div class = "left_box col-xs-4">
+			<p>Incorrect Letters Guessed
 			<br>
-			<p>Wins
-			<br>
-			<span id="wins"></span></p>
-			<br>
-			<p>Current Word 
-			<br>
-			<span id="current_word"></span></p> 
+			<span id="letters_guessed"></span></p>
 			<br>
 			<p>Number of Guesses Remaining
 			<br>
 			<span id="guesses_remaining"></span></p>
 			<br>
-			<p>Letters Already Guessed
+			<p>Wins
 			<br>
-			<span id="letters_guessed"></span></p>
+			<span id="wins"></span></p>
+			<br>
+			</div>
+			
+			<div class = "right_box col-xs-4">
+				<p>Current Word 
+				<br>
+				<span id="current_word"></span></p> 
+				<br>
+			</div>
+
+			<div class = "col-xs-2">
+			</div>
+
 		</div>
 	</body>

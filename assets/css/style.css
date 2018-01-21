@@ -38,13 +38,23 @@ h1{
 
 p{
 	font-family: "Lumos";
-	font-size: 30px;
+	font-size: 2.5vw;
 }
 
 div{
 	overflow: auto;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.main_game{
+    margin-top: 10vh;
+}
+
+.left_box, .right_box{
+    margin-top: 5vh;
 }
 
 #current_word{
-	letter-spacing: 12px;
+	letter-spacing: 14px;
 }
