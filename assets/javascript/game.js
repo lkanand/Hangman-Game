@@ -57,14 +57,14 @@ function playRepeatMusic(){
 	randomNumber = Math.floor(Math.random() * repeatLetterMusicTags.length);
 	pauseMusic("r");
 	document.getElementById(repeatLetterMusicTags[randomNumber]).play();
-}
+};
 
 //Plays victory music
 function playVictoryMusic(){
 	randomNumber = Math.floor(Math.random() * victoryMusicTags.length);
 	pauseMusic("v");
 	document.getElementById(victoryMusicTags[randomNumber]).play();
-}
+};
 
 // Prevents music of same class (victory or repeat) from playing over each other 
 function pauseMusic(music_class){
@@ -82,6 +82,56 @@ function dissolveLosingImage(){
 	losingImage.classList.add("invisible");
 	losingImage.classList.remove("stamp");
 };
+
+/* My failed attempt to create a constantly moving footprint on the screen
+//footprints across screen
+function footprints(){
+	$(document).ready(function() {
+		var windowHeight = $(window).height();
+		var windowWidth = $(window).width();
+		var footprintOrientation = getAngle();
+		var distanceTraveled = 10;
+		var top;
+		var left;
+
+		setTimeout(function() {
+			$("#footprint").fadeOut(500), 500});
+			
+		setTimeout(function() {
+			var degreeChange = (-5 + Math.floor(Math.random()*11)) * 10;
+			$("#footprint").removeClass();
+			$("#footprint").addClass("rotate" + (degreeChange / 10));
+			top = $("#footprint").position().top;
+			left = $("#footprint").position().left;
+			top = top - Math.cos((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
+			left = left - Math.sin((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
+			footprintOrientation = footprintOrientation + degreeChange; 
+			
+			while(top < 20 || top > windowHeight - 20 || left < 0 + 20 || left > windowWidth - 20) { 
+				$("#footprint").removeClass();
+				$("#footprint").addClass("rotate180"); 
+				footprintOrientation = footprintOrientation - degreeChange + 180;
+				top = top - Math.cos((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
+				left = left - Math.sin((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;	
+			} 
+
+			$("#footprint").animate({top: top, left: left})
+		}, 503);
+
+		setTimeout(function() {
+			$("#footprint").fadeIn(500);
+		}, 1004);
+	});
+};
+
+//gets angle of image
+function getAngle() {
+	var transformValues;
+	transformValues = $("#footprint").css("transform").split("(")[1];
+	transformValues = transformValues.split(")")[0];
+	transformValues = transformValues.split(",");
+	return Math.round(Math.asin(transformValues[1]) * (180/Math.PI));
+}; */
 
 //Game object
 var game = {
@@ -116,7 +166,7 @@ var game = {
 	dissolveNewBoard: function(){
 		var arrayOfIds;
 		arrayOfIds = this.stringOfUnderlines.split("").map(function(element, index) {
-			return $('<span id="'+ index + '">' + element + '</span>');
+			return $('<span id="u'+ index + '">' + element + '</span>');
 		});
 
 		var currentWord = $("#current_word");
@@ -163,6 +213,7 @@ var game = {
 			return true;
 	},
 
+	//resets user's input
 	resetUserInput: function(){
 		this.userInput = "";
 	},
@@ -234,19 +285,24 @@ var game = {
 		}
 				
 		var arrayOfIds = this.stringOfUnderlines.split("").map(function(element, index) {
-			return $('<span id="'+ index + '">' + element + '</span>');
+			return $('<span id="u'+ index + '">' + element + '</span>');
 		});
-	
-		var currentWord = $("#current_word");		
-		currentWord.empty();
+
+		var input = this.userInput;
+		
 		arrayOfIds.forEach(function(element, index) {
-			currentWord.append(element);
 			if(arrayOfIndexesToChange.indexOf(index) > -1) {
-				element.hide();
+				var stringId = '#u' + index;
 				setTimeout(function() {
-					element.fadeIn(1000)
-				}, 1000 + arrayOfIndexesToChange.indexOf(index)*1000);
-			};
+					$(stringId).addClass("fadeOut"); 
+					}, 1000 + arrayOfIndexesToChange.indexOf(index)*1000); 
+				
+				setTimeout(function() {
+					$(stringId).removeClass();
+					$(stringId).addClass("fadeIn");
+					$(stringId).text(input) 
+					}, 2000 + arrayOfIndexesToChange.indexOf(index)*2000);
+			}
 		});
 	},
 
@@ -306,7 +362,9 @@ var game = {
 	}
 };
 
+/*setInterval(footprints, 1002); */
 document.onkeyup = function(event) {
+
 	game.setGame();
 	game.dissolveNewBoard();
 	document.onkeyup = function(event) {

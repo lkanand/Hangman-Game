@@ -14,14 +14,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'inkpotregular';
-    src: url('inkpot-webfont.woff2') format('woff2'),
-         url('inkpot-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body{
 	height: 100%;
 	background-image: url("../images/parchment_background.jpg");
@@ -80,9 +72,36 @@ div{
     }
 }
 
-.undesirable {
+@-webkit-keyframes fadeIn-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOut-animation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#footprint {
     position: absolute;
     z-index: 1;
+    width: 3vw;
+    top: 40%;
+}
+
+.undesirable {
+    position: absolute;
+    z-index: 2;
     top: 9%;
     right: 38%;
 
@@ -101,3 +120,68 @@ div{
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
 }
+
+.fadeIn{
+    -webkit-animation-name: fadeIn-animation;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.fadeOut{
+    -webkit-animation-name: fadeOut-animation;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/*CSS to animate footprint image
+.rotate-5{
+    -webkit-transform: rotate(-50deg);
+}
+
+.rotate-4{
+    -webkit-transform: rotate(-40deg);
+}
+
+.rotate-3{
+    -webkit-transform: rotate(-30deg);
+}
+
+.rotate-2{
+    -webkit-transform: rotate(-20deg);
+}
+
+.rotate-1{
+    -webkit-transform: rotate(-10deg);
+}
+
+.rotate0{
+    -webkit-transform: rotate(0deg);
+}
+
+.rotate1{
+    -webkit-transform: rotate(10deg);
+}
+
+.rotate2{
+    -webkit-transform: rotate(20deg);
+}
+
+.rotate3{
+    -webkit-transform: rotate(30deg);
+}
+
+.rotate4{
+    -webkit-transform: rotate(40deg);
+}
+
+.rotate5{
+    -webkit-transform: rotate(50deg);
+}
+
+.rotate180{
+    -webkit-transform: rotate(180deg);
+} */
