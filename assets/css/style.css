@@ -123,7 +123,7 @@ div{
 
 .fadeIn{
     -webkit-animation-name: fadeIn-animation;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: .2s;
     -webkit-animation-direction: normal;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
@@ -131,7 +131,7 @@ div{
 
 .fadeOut{
     -webkit-animation-name: fadeOut-animation;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: .2s;
     -webkit-animation-direction: normal;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;

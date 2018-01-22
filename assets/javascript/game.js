@@ -169,11 +169,17 @@ var game = {
 			return $('<span id="u'+ index + '">' + element + '</span>');
 		});
 
+		var arrayOfCharacters = this.charactersOfSelectedWord;
+
 		var currentWord = $("#current_word");
 		arrayOfIds.forEach(function(element, index) {
 			currentWord.append(element);
 			element.hide();
 			setTimeout(function() {
+				if(alphabet.indexOf(arrayOfCharacters[index].toLowerCase()) > -1)
+					element.text("_");
+				else
+					element.text(arrayOfCharacters[index]);
 				element.fadeIn(500)
 			}, 500 + index*500);
 		});
@@ -283,6 +289,10 @@ var game = {
 				arrayOfIndexesToChange.push(j);
 			}
 		}
+
+		var gameWon = false;
+		if(this.stringOfUnderlines.indexOf("_") === -1)
+			gameWon = true;
 				
 		var arrayOfIds = this.stringOfUnderlines.split("").map(function(element, index) {
 			return $('<span id="u'+ index + '">' + element + '</span>');
@@ -295,13 +305,13 @@ var game = {
 				var stringId = '#u' + index;
 				setTimeout(function() {
 					$(stringId).addClass("fadeOut"); 
-					}, 1000 + arrayOfIndexesToChange.indexOf(index)*1000); 
+					}, 200 + arrayOfIndexesToChange.indexOf(index)*200); 
 				
 				setTimeout(function() {
 					$(stringId).removeClass();
 					$(stringId).addClass("fadeIn");
 					$(stringId).text(input) 
-					}, 2000 + arrayOfIndexesToChange.indexOf(index)*2000);
+					}, 400 + arrayOfIndexesToChange.indexOf(index)*400);
 			}
 		});
 	},
