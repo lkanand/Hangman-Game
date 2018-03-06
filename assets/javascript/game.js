@@ -83,56 +83,6 @@ function dissolveLosingImage(){
 	losingImage.classList.remove("stamp");
 };
 
-/* My failed attempt to create a constantly moving footprint on the screen
-//footprints across screen
-function footprints(){
-	$(document).ready(function() {
-		var windowHeight = $(window).height();
-		var windowWidth = $(window).width();
-		var footprintOrientation = getAngle();
-		var distanceTraveled = 10;
-		var top;
-		var left;
-
-		setTimeout(function() {
-			$("#footprint").fadeOut(500), 500});
-			
-		setTimeout(function() {
-			var degreeChange = (-5 + Math.floor(Math.random()*11)) * 10;
-			$("#footprint").removeClass();
-			$("#footprint").addClass("rotate" + (degreeChange / 10));
-			top = $("#footprint").position().top;
-			left = $("#footprint").position().left;
-			top = top - Math.cos((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
-			left = left - Math.sin((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
-			footprintOrientation = footprintOrientation + degreeChange; 
-			
-			while(top < 20 || top > windowHeight - 20 || left < 0 + 20 || left > windowWidth - 20) { 
-				$("#footprint").removeClass();
-				$("#footprint").addClass("rotate180"); 
-				footprintOrientation = footprintOrientation - degreeChange + 180;
-				top = top - Math.cos((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;
-				left = left - Math.sin((360 - footprintOrientation)*Math.PI/180) * distanceTraveled;	
-			} 
-
-			$("#footprint").animate({top: top, left: left})
-		}, 503);
-
-		setTimeout(function() {
-			$("#footprint").fadeIn(500);
-		}, 1004);
-	});
-};
-
-//gets angle of image
-function getAngle() {
-	var transformValues;
-	transformValues = $("#footprint").css("transform").split("(")[1];
-	transformValues = transformValues.split(")")[0];
-	transformValues = transformValues.split(",");
-	return Math.round(Math.asin(transformValues[1]) * (180/Math.PI));
-}; */
-
 //Game object
 var game = {
 	charactersOfSelectedWord: [],
@@ -368,13 +318,11 @@ var game = {
 		this.solvedPuzzle = false;
 		$("#current_word").empty();
 		$("#letters_guessed").empty();
-		$("#wins").empty();
 	}
 };
 
-/*setInterval(footprints, 1002); */
 document.onkeyup = function(event) {
-
+	$("#command").addClass("visibility-hidden");
 	game.setGame();
 	game.dissolveNewBoard();
 	document.onkeyup = function(event) {

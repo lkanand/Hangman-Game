@@ -45,15 +45,19 @@ div{
 }
 
 .main_game{
-    margin-top: 10vh;
+    margin-top: 4vh;
 }
 
 .main_game div{
     text-align: center;
 }
 
+.visibility-hidden{
+    visibility: hidden;
+}
+
 .left_box, .right_box{
-    margin-top: 5vh;
+    margin-top: 4vh;
 }
 
 #current_word{
@@ -136,52 +140,3 @@ div{
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
 }
-
-/*CSS to animate footprint image
-.rotate-5{
-    -webkit-transform: rotate(-50deg);
-}
-
-.rotate-4{
-    -webkit-transform: rotate(-40deg);
-}
-
-.rotate-3{
-    -webkit-transform: rotate(-30deg);
-}
-
-.rotate-2{
-    -webkit-transform: rotate(-20deg);
-}
-
-.rotate-1{
-    -webkit-transform: rotate(-10deg);
-}
-
-.rotate0{
-    -webkit-transform: rotate(0deg);
-}
-
-.rotate1{
-    -webkit-transform: rotate(10deg);
-}
-
-.rotate2{
-    -webkit-transform: rotate(20deg);
-}
-
-.rotate3{
-    -webkit-transform: rotate(30deg);
-}
-
-.rotate4{
-    -webkit-transform: rotate(40deg);
-}
-
-.rotate5{
-    -webkit-transform: rotate(50deg);
-}
-
-.rotate180{
-    -webkit-transform: rotate(180deg);
-} */
